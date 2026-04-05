@@ -806,6 +806,118 @@
         }, 100);
     }
 </script>
+<!-- FOOTER -->
+<footer class="page-footer">
+    <div class="footer-content">
+        <div class="footer-text">
+            <span>📚 Educational materials by </span>
+            <a href="https://vk.com/proenglishkulagina" target="_blank" class="vk-footer-link">
+                vk.com/proenglishkulagina
+            </a>
+        </div>
+        <div class="footer-social">
+            <a href="https://vk.com/proenglishkulagina" target="_blank" class="social-icon" title="VKontakte">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M12.725 16.256c.256.006.512-.05.768-.168.378-.174.69-.41.936-.708.006-.008.012-.016.018-.024.24-.304.402-.636.486-.996.086-.368.106-.738.06-1.11-.048-.384-.168-.738-.36-1.062-.198-.336-.468-.618-.81-.846-.348-.234-.756-.396-1.224-.486-.474-.09-.972-.09-1.494 0-.516.09-.966.27-1.35.54-.39.276-.696.618-.918 1.026-.228.414-.342.876-.342 1.386 0 .51.114.972.342 1.386.222.408.528.75.918 1.026.384.27.834.45 1.35.54.522.09 1.02.09 1.494 0zm5.94-3.96c-.012-.018-.024-.036-.036-.054-.378-.576-.846-1.038-1.404-1.386-.564-.354-1.182-.588-1.854-.702-.678-.114-1.368-.108-2.07.018-.708.126-1.356.372-1.944.738-.594.372-1.092.852-1.494 1.44-.408.594-.612 1.272-.612 2.034 0 .762.204 1.44.612 2.034.402.588.9 1.068 1.494 1.44.588.366 1.236.612 1.944.738.702.126 1.392.132 2.07.018.672-.114 1.29-.348 1.854-.702.558-.348 1.026-.81 1.404-1.386.012-.018.024-.036.036-.054.378-.594.567-1.266.567-2.016 0-.75-.189-1.422-.567-2.016zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; 2026 English Learning Materials. All rights reserved.</p>
+    </div>
+</footer>
 
+<style>
+.page-footer {
+    background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 100%);
+    color: white;
+    padding: 25px 20px;
+    margin-top: 40px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-text {
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.vk-footer-link {
+    color: #bbdefb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.1);
+}
+
+.vk-footer-link:hover {
+    color: white;
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.footer-social .social-icon {
+    color: white;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.footer-social .social-icon:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.footer-copyright {
+    max-width: 900px;
+    margin: 15px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-text {
+        justify-content: center;
+    }
+    
+    .page-footer {
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+}
+</style>
 </body>
 </html>
