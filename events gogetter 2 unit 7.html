@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Vocabulary Practice</title>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=P3TR550Ao37nkEvC1Ja00XIMwuPK-n4RauUcQBbDl3bXqSFmWNxfbti-5smZLs2GaaFWEz8C-ORaLo1D1jPtCWMczjztzOnVTlG328jJvxI5sTCCIiTIC1RoMUBLZEoUlJV3hNPEmCEYn23LBQV_kZ572pSUXWfMCXyZgMOAkNsrWcjwPuIcQUC8LX61q634xr7Es-h9Tv8gl4mCtjFmZy4arQtWKKHlfQKAxS7mqlVcC7YRf4ZHZiFyKrFV5OPXrwYt-RUH51_9ONsDWTI_uiT2OUc7sB9lzm40-mH67kR_TbL5vWsT2iBiYc1UArOrlb-Ol1zUMhdJqx73OqaPt27FwI_KD_qREBp6LfDYbPZpX0SjGKhAizcRLkzkcZwpgpy3TI9zTrIRoxSbgJlAI0wBfyMn-bhESBbkHwDV6Jwo5arM8v4BzzUhMMJejjJovv4vgDr1EeBsOzfarzRP9B1cdA2ch3b8jZCpI5tfkh0a4exStfWC2XQK45QE85-hrGJm11oZ8W9imcQXKoouwF3S57nfeJ0L9DuTa1dvrbXD2WZRip-Avx08s9TYDYmIezyQmur4jy47vnHC4pqRnOEQxNEJ1acFMNno4vzGvhCIsb95ItZn48vOSx1A6s1ODlfNCPlCraiwrErIN05BqQqwS-WtgAbZm41jhMabwU168iBMDPvVZVM-ZJQTyV6VeygGOPd7hKkSxJvIzW3EjwBaW7axc0BeeyyIDLDsMN_HHGurpcBzct7WKhUv7WBOyilHmUc_GOW1DeYSXWUNAyzJBhjJIyZbVJNPvZ1rJcyh2iIjlIZtDHolceH_wkviU8ijBAl9AFXpCtWkcTIYcizMQIU1IfjAJRQtmpSHIuYbhL9nh2hb0D7XrIEnHka2dlD__mTz139BVHQ5F5sjcA" charset="UTF-8"></script><style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 50%, #fff3e0 100%);
+            min-height: 100vh; padding: 20px; color: #333;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; padding: 20px; }
+        header h1 { font-size: 2.2em; color: #4a148c; margin-bottom: 8px; }
+        header p { font-size: 1.1em; color: #666; }
+        
+        .vocabulary-box {
+            background: white; border-radius: 16px; padding: 20px 25px;
+            margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #7c4dff;
+        }
+        .vocabulary-box h3 { color: #4a148c; margin-bottom: 12px; font-size: 1.1em; }
+        .vocab-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .vocab-tag {
+            background: #ede7f6; color: #4a148c; padding: 6px 14px;
+            border-radius: 20px; font-size: 0.95em; font-weight: 500;
+        }
+        
+        .task-section {
+            background: white; border-radius: 16px; padding: 25px 30px;
+            margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative; overflow: hidden;
+        }
+        .task-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        }
+        .task-section:nth-child(1)::before { background: linear-gradient(90deg, #ff6f00, #ffca28); }
+        .task-section:nth-child(2)::before { background: linear-gradient(90deg, #00bfa5, #64ffda); }
+        .task-section:nth-child(3)::before { background: linear-gradient(90deg, #d500f9, #ea80fc); }
+        .task-section:nth-child(4)::before { background: linear-gradient(90deg, #2979ff, #82b1ff); }
+        
+        .task-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .task-number {
+            background: linear-gradient(135deg, #7c4dff, #b388ff); color: white;
+            width: 38px; height: 38px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 1.1em; flex-shrink: 0;
+        }
+        .task-header h2 { font-size: 1.3em; color: #333; }
+        .task-header .emoji { font-size: 1.4em; }
+        .instruction {
+            background: #f5f5f5; padding: 10px 15px; border-radius: 8px;
+            margin-bottom: 18px; font-size: 0.95em; color: #555;
+        }
+        
+        /* Task 2 */
+        .sentence-item {
+            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px;
+            padding: 10px 14px; background: #fafafa; border-radius: 10px;
+            border: 2px solid transparent; transition: all 0.3s;
+        }
+        .sentence-item.correct { border-color: #4caf50; background: #e8f5e9; }
+        .sentence-item.incorrect { border-color: #f44336; background: #ffebee; }
+        .sentence-num {
+            background: #e3f2fd; color: #1565c0; min-width: 28px; height: 28px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-weight: 600; font-size: 0.9em;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .sentence-text { flex: 1; font-size: 1em; line-height: 1.6; }
+        select.blank {
+            padding: 4px 10px; border: 2px solid #bbdefb; border-radius: 8px;
+            font-size: 0.95em; background: white; color: #333; cursor: pointer;
+            min-width: 180px; transition: border-color 0.3s; font-family: inherit;
+        }
+        select.blank:focus { outline: none; border-color: #7c4dff; }
+        select.blank.correct { border-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+        select.blank.incorrect { border-color: #f44336; background: #ffebee; color: #c62828; }
+        
+        /* Task 3 - Matching */
+        .columns-wrapper {
+            display: flex; justify-content: space-between; gap: 20px; margin-bottom: 10px;
+        }
+        .left-column, .right-column {
+            flex: 1; display: flex; flex-direction: column; gap: 10px;
+        }
+        .match-item {
+            padding: 14px 18px; border-radius: 10px; cursor: pointer;
+            text-align: center; font-weight: 600; font-size: 1em;
+            transition: all 0.3s ease; border: 3px solid transparent;
+            user-select: none;
+        }
+        .match-left {
+            background: #fff3e0; color: #e65100; border-color: #ffe0b2;
+        }
+        .match-left:hover:not(.matched) {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(230,81,0,0.2);
+        }
+        .match-left.selected {
+            border-color: #2196f3;
+            box-shadow: 0 0 0 4px rgba(33,150,243,0.3);
+            transform: scale(1.03);
+        }
+        .match-right {
+            background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9;
+        }
+        .match-right:hover:not(.matched) {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.2);
+        }
+        .match-item.wrong {
+            animation: shake 0.5s ease;
+            border-color: #f44336 !important;
+            background: #ffcdd2 !important;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-10px); }
+            80% { transform: translateX(10px); }
+        }
+        .match-item.matched {
+            opacity: 0.4; pointer-events: none; cursor: default;
+        }
+        .connected-pairs {
+            margin-top: 20px; display: flex; flex-direction: column; gap: 10px;
+        }
+        .connected-row {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 12px 20px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 12px; border: 2px solid #66bb6a;
+            animation: slideIn 0.4s ease; font-weight: 600;
+        }
+        .connected-row .left-text {
+            color: #e65100; min-width: 150px; text-align: right;
+        }
+        .connected-row .arrow { font-size: 1.3em; color: #4caf50; }
+        .connected-row .right-text {
+            color: #2e7d32; min-width: 200px; text-align: left;
+        }
+        .connected-row .check {
+            background: #4caf50; color: white; width: 24px; height: 24px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 0.9em; margin-left: 10px;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Task 5 */
+        .need-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .need-card {
+            background: #fce4ec; border-radius: 12px; padding: 15px;
+            border: 2px solid #f8bbd0; transition: all 0.3s;
+        }
+        .need-card h4 {
+            color: #880e4f; margin-bottom: 10px; font-size: 1em;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .need-card select {
+            width: 100%; padding: 8px 10px; border: 2px solid #f8bbd0;
+            border-radius: 8px; font-size: 0.9em; margin-bottom: 6px;
+            background: white; font-family: inherit; cursor: pointer;
+        }
+        .need-card select:focus { outline: none; border-color: #e91e63; }
+        .need-card select.correct { border-color: #4caf50; background: #e8f5e9; }
+        .need-card select.incorrect { border-color: #f44336; background: #ffebee; }
+        
+        /* Task 8 - Dice */
+        .dice-container { text-align: center; padding: 10px 0; }
+        .dice {
+            width: 100px; height: 100px; background: white;
+            border: 3px solid #ddd; border-radius: 16px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 2.5em; font-weight: bold; color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        .dice.rolling { animation: roll 0.6s ease-in-out; }
+        @keyframes roll {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(0.8); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            75% { transform: rotate(270deg) scale(0.9); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .roll-btn {
+            background: linear-gradient(135deg, #2979ff, #82b1ff); color: white;
+            border: none; padding: 12px 30px; border-radius: 25px;
+            font-size: 1.1em; font-weight: 600; cursor: pointer;
+            transition: all 0.3s; font-family: inherit;
+        }
+        .roll-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(41,121,255,0.3);
+        }
+        .roll-btn:active { transform: translateY(0); }
+        .dice-prompt {
+            margin-top: 18px; padding: 18px; background: #e3f2fd;
+            border-radius: 12px; min-height: 70px; display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dice-prompt .prompt-label {
+            font-weight: 700; color: #1565c0; font-size: 1em; margin-bottom: 6px;
+        }
+        .dice-prompt .prompt-text { font-size: 1.15em; color: #333; }
+        .dice-prompt .prompt-sentence {
+            margin-top: 8px; font-size: 0.95em; color: #555; font-style: italic;
+        }
+        
+        /* Buttons */
+        .btn-row { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+        .check-btn {
+            background: linear-gradient(135deg, #43a047, #66bb6a); color: white;
+            border: none; padding: 12px 28px; border-radius: 25px;
+            font-size: 1em; font-weight: 600; cursor: pointer;
+            transition: all 0.3s; font-family: inherit;
+        }
+        .check-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67,160,71,0.3);
+        }
+        .reset-btn {
+            background: #f5f5f5; color: #666; border: 2px solid #ddd;
+            padding: 12px 28px; border-radius: 25px; font-size: 1em;
+            font-weight: 600; cursor: pointer; transition: all 0.3s;
+            font-family: inherit;
+        }
+        .reset-btn:hover { background: #eee; border-color: #ccc; }
+        
+        .score-display {
+            margin-top: 15px; padding: 12px 20px; background: #f3e5f5;
+            border-radius: 10px; font-size: 1.05em; font-weight: 600;
+            color: #6a1b9a; display: none;
+        }
+        .score-display.visible { display: block; animation: fadeIn 0.4s ease; }
+        .all-correct-msg {
+            text-align: center; margin-top: 10px; font-size: 1.1em;
+            color: #2e7d32; font-weight: 600; display: none;
+        }
+        .all-correct-msg.visible { display: block; animation: fadeIn 0.4s ease; }
+        
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .task-section { padding: 18px; }
+            header h1 { font-size: 1.6em; }
+            select.blank { min-width: 140px; font-size: 0.88em; }
+            .need-grid { grid-template-columns: 1fr; }
+            .columns-wrapper { flex-direction: column; gap: 15px; }
+            .connected-row { flex-direction: column; gap: 5px; }
+            .connected-row .left-text, .connected-row .right-text {
+                text-align: center; min-width: auto;
+            }
+            .match-item { padding: 10px 12px; font-size: 0.9em; }
+            .vocab-tag { font-size: 0.85em; padding: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎉 Events & Activities</h1>
+        <p>Practice your vocabulary with fun tasks!</p>
+    </header>
+
+    <div class="vocabulary-box">
+        <h3>📖 Vocabulary</h3>
+        <div class="vocab-tags">
+            <span class="vocab-tag">barbecue</span>
+            <span class="vocab-tag">birthday party</span>
+            <span class="vocab-tag">concert</span>
+            <span class="vocab-tag">dance show</span>
+            <span class="vocab-tag">football match</span>
+            <span class="vocab-tag">fancy dress party</span>
+            <span class="vocab-tag">picnic</span>
+            <span class="vocab-tag">play</span>
+            <span class="vocab-tag">sleepover</span>
+            <span class="vocab-tag">talent competition</span>
+        </div>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="task-section" id="task2">
+        <div class="task-header">
+            <div class="task-number">1</div>
+            <h2><span class="emoji">✍️</span> Complete the Sentences</h2>
+        </div>
+        <div class="instruction">Choose the correct word from the list to complete each sentence.</div>
+
+        <div class="sentence-item" id="s2q1">
+            <div class="sentence-num">1</div>
+            <div class="sentence-text">
+                I'm having a 
+                <select class="blank" data-answer="birthday party">
+                    <option value="">— choose —</option>
+                    <option>picnic</option><option>sleepover</option>
+                    <option>birthday party</option><option>concert</option>
+                    <option>fancy dress party</option>
+                </select>
+                on Saturday. I'm going to be 12!
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q2">
+            <div class="sentence-num">2</div>
+            <div class="sentence-text">
+                We're going to have a 
+                <select class="blank" data-answer="picnic">
+                    <option value="">— choose —</option>
+                    <option>barbecue</option><option>picnic</option>
+                    <option>football match</option><option>play</option>
+                    <option>dance show</option>
+                </select>
+                in the park. Let's bring sandwiches and fruit!
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q3">
+            <div class="sentence-num">3</div>
+            <div class="sentence-text">
+                My favorite band is performing tonight. Let's go to the 
+                <select class="blank" data-answer="concert">
+                    <option value="">— choose —</option>
+                    <option>concert</option><option>talent competition</option>
+                    <option>play</option><option>dance show</option>
+                    <option>football match</option>
+                </select>
+                !
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q4">
+            <div class="sentence-num">4</div>
+            <div class="sentence-text">
+                I'm watching United vs. City. It's a big 
+                <select class="blank" data-answer="football match">
+                    <option value="">— choose —</option>
+                    <option>talent competition</option><option>concert</option>
+                    <option>dance show</option><option>play</option>
+                    <option>football match</option>
+                </select>
+                .
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q5">
+            <div class="sentence-num">5</div>
+            <div class="sentence-text">
+                Come to my house tonight! We can watch films and stay up late. It's a 
+                <select class="blank" data-answer="sleepover">
+                    <option value="">— choose —</option>
+                    <option>picnic</option><option>birthday party</option>
+                    <option>barbecue</option><option>fancy dress party</option>
+                    <option>sleepover</option>
+                </select>
+                !
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q6">
+            <div class="sentence-num">6</div>
+            <div class="sentence-text">
+                My sister is in a 
+                <select class="blank" data-answer="dance show">
+                    <option value="">— choose —</option>
+                    <option>play</option><option>dance show</option>
+                    <option>concert</option><option>talent competition</option>
+                    <option>football match</option>
+                </select>
+                . She's dancing ballet.
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q7">
+            <div class="sentence-num">7</div>
+            <div class="sentence-text">
+                We're cooking burgers outside. It's a 
+                <select class="blank" data-answer="barbecue">
+                    <option value="">— choose —</option>
+                    <option>picnic</option><option>birthday party</option>
+                    <option>barbecue</option><option>sleepover</option>
+                    <option>concert</option>
+                </select>
+                !
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q8">
+            <div class="sentence-num">8</div>
+            <div class="sentence-text">
+                I'm going to the theater to watch a 
+                <select class="blank" data-answer="play">
+                    <option value="">— choose —</option>
+                    <option>dance show</option><option>concert</option>
+                    <option>football match</option><option>play</option>
+                    <option>talent competition</option>
+                </select>
+                about Shakespeare.
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q9">
+            <div class="sentence-num">9</div>
+            <div class="sentence-text">
+                My friend is singing at the 
+                <select class="blank" data-answer="talent competition">
+                    <option value="">— choose —</option>
+                    <option>concert</option><option>dance show</option>
+                    <option>talent competition</option><option>play</option>
+                    <option>fancy dress party</option>
+                </select>
+                . I want to see her perform!
+            </div>
+        </div>
+        <div class="sentence-item" id="s2q10">
+            <div class="sentence-num">10</div>
+            <div class="sentence-text">
+                Wear a costume! It's a 
+                <select class="blank" data-answer="fancy dress party">
+                    <option value="">— choose —</option>
+                    <option>birthday party</option><option>sleepover</option>
+                    <option>picnic</option><option>fancy dress party</option>
+                    <option>barbecue</option>
+                </select>
+                tonight!
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="check-btn" onclick="checkTask2()">✅ Check Answers</button>
+            <button class="reset-btn" onclick="resetTask2()">🔄 Reset</button>
+        </div>
+        <div class="score-display" id="task2-score"></div>
+        <div class="all-correct-msg" id="task2-msg">🎉 Perfect! All answers are correct!</div>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="task-section" id="task3">
+        <div class="task-header">
+            <div class="task-number">2</div>
+            <h2><span class="emoji">💬</span> What Do You Do?</h2>
+        </div>
+        <div class="instruction">Click an event on the left, then click the matching activity on the right.</div>
+
+        <div class="matching-area" id="matchingArea">
+            <div class="columns-wrapper">
+                <div class="left-column">
+                    <div class="match-item match-left" data-pair="picnic" data-full="1. picnic" onclick="selectLeft(this)">1. picnic</div>
+                    <div class="match-item match-left" data-pair="sleepover" data-full="2. sleepover" onclick="selectLeft(this)">2. sleepover</div>
+                    <div class="match-item match-left" data-pair="fancy" data-full="3. fancy dress party" onclick="selectLeft(this)">3. fancy dress party</div>
+                    <div class="match-item match-left" data-pair="concert" data-full="4. concert" onclick="selectLeft(this)">4. concert</div>
+                    <div class="match-item match-left" data-pair="danceshow" data-full="5. dance show" onclick="selectLeft(this)">5. dance show</div>
+                </div>
+                <div class="right-column">
+                    <div class="match-item match-right" data-pair="costume" data-full="a. wear a costume" onclick="selectRight(this)">a. wear a costume</div>
+                    <div class="match-item match-right" data-pair="grass" data-full="b. eat outside on the grass" onclick="selectRight(this)">b. eat outside on the grass</div>
+                    <div class="match-item match-right" data-pair="dance" data-full="c. watch people dance" onclick="selectRight(this)">c. watch people dance</div>
+                    <div class="match-item match-right" data-pair="friend" data-full="d. stay at a friend's house" onclick="selectRight(this)">d. stay at a friend's house</div>
+                    <div class="match-item match-right" data-pair="music" data-full="e. listen to music" onclick="selectRight(this)">e. listen to music</div>
+                </div>
+            </div>
+        </div>
+        <div class="connected-pairs" id="connectedPairs"></div>
+        <div class="score-display" id="task3-score"></div>
+        <div class="all-correct-msg" id="task3-msg">🎉 Perfect! All matched correctly!</div>
+        <button class="reset-btn" onclick="resetTask3()" style="margin-top: 15px;">🔄 Reset</button>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="task-section" id="task5">
+        <div class="task-header">
+            <div class="task-number">3</div>
+            <h2><span class="emoji">🎯</span> What Do You Need?</h2>
+        </div>
+        <div class="instruction">Choose <strong>two</strong> things you need for each event.</div>
+        <div class="need-grid">
+            <div class="need-card">
+                <h4>🔥 Barbecue</h4>
+                <select class="need-select" data-group="barbecue" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>grill</option><option>ball</option><option>burger patties</option>
+                    <option>blanket</option><option>costume</option><option>sleeping bag</option>
+                </select>
+                <select class="need-select" data-group="barbecue" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ticket</option><option>burger patties</option><option>pillow</option>
+                    <option>grill</option><option>microphone</option><option>stage</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🎂 Birthday Party</h4>
+                <select class="need-select" data-group="birthday" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>cake</option><option>ball</option><option>balloons</option>
+                    <option>ticket</option><option>sleeping bag</option><option>grill</option>
+                </select>
+                <select class="need-select" data-group="birthday" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>presents</option><option>ball</option><option>grill</option>
+                    <option>cake</option><option>ticket</option><option>pillow</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🎵 Concert</h4>
+                <select class="need-select" data-group="concert" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>ticket</option><option>burger patties</option>
+                    <option>costume</option><option>stage</option><option>blanket</option>
+                </select>
+                <select class="need-select" data-group="concert" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>stage</option><option>grill</option>
+                    <option>ticket</option><option>pillow</option><option>burger patties</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>💃 Dance Show</h4>
+                <select class="need-select" data-group="dance" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>ticket</option><option>grill</option>
+                    <option>stage</option><option>pillow</option><option>burger patties</option>
+                </select>
+                <select class="need-select" data-group="dance" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>stage</option><option>ball</option><option>ticket</option>
+                    <option>grill</option><option>blanket</option><option>sleeping bag</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>⚽ Football Match</h4>
+                <select class="need-select" data-group="football" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>cake</option><option>ticket</option>
+                    <option>grill</option><option>pillow</option><option>costume</option>
+                </select>
+                <select class="need-select" data-group="football" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ticket</option><option>ball</option><option>cake</option>
+                    <option>grill</option><option>blanket</option><option>stage</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🎭 Fancy Dress Party</h4>
+                <select class="need-select" data-group="fancy" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>costume</option><option>grill</option>
+                    <option>music</option><option>pillow</option><option>ticket</option>
+                </select>
+                <select class="need-select" data-group="fancy" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>costume</option><option>music</option><option>ball</option>
+                    <option>grill</option><option>stage</option><option>pillow</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🧺 Picnic</h4>
+                <select class="need-select" data-group="picnic" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>blanket</option><option>grill</option>
+                    <option>ticket</option><option>food basket</option><option>stage</option>
+                </select>
+                <select class="need-select" data-group="picnic" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>food basket</option><option>ball</option><option>blanket</option>
+                    <option>grill</option><option>pillow</option><option>costume</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🎬 Play</h4>
+                <select class="need-select" data-group="play" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>ticket</option><option>stage</option>
+                    <option>grill</option><option>pillow</option><option>blanket</option>
+                </select>
+                <select class="need-select" data-group="play" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ticket</option><option>stage</option><option>ball</option>
+                    <option>grill</option><option>food basket</option><option>pillow</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🛏️ Sleepover</h4>
+                <select class="need-select" data-group="sleepover" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>pillow</option><option>grill</option>
+                    <option>sleeping bag</option><option>ticket</option><option>costume</option>
+                </select>
+                <select class="need-select" data-group="sleepover" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>sleeping bag</option><option>pillow</option><option>ball</option>
+                    <option>grill</option><option>stage</option><option>blanket</option>
+                </select>
+            </div>
+            <div class="need-card">
+                <h4>🏆 Talent Competition</h4>
+                <select class="need-select" data-group="talent" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>ball</option><option>stage</option><option>microphone</option>
+                    <option>grill</option><option>pillow</option><option>blanket</option>
+                </select>
+                <select class="need-select" data-group="talent" data-answer="true">
+                    <option value="">— choose —</option>
+                    <option>microphone</option><option>stage</option><option>ball</option>
+                    <option>grill</option><option>ticket</option><option>pillow</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-row">
+            <button class="check-btn" onclick="checkTask5()">✅ Check Answers</button>
+            <button class="reset-btn" onclick="resetTask5()">🔄 Reset</button>
+        </div>
+        <div class="score-display" id="task5-score"></div>
+        <div class="all-correct-msg" id="task5-msg">🎉 Perfect! All answers are correct!</div>
+    </div>
+
+    <!-- TASK 8 - DICE GAME -->
+    <div class="task-section" id="task8">
+        <div class="task-header">
+            <div class="task-number">4</div>
+            <h2><span class="emoji">🎲</span> Dice Game</h2>
+        </div>
+        <div class="instruction">Roll the dice and follow the instruction! Choose any event from the vocabulary list.</div>
+        <div class="dice-container">
+            <div class="dice" id="dice">🎲</div><br>
+            <button class="roll-btn" id="rollBtn" onclick="rollDice()">🎲 Roll the Dice!</button>
+            <div class="dice-prompt" id="dicePrompt">
+                <div class="prompt-label" id="promptLabel"></div>
+                <div class="prompt-text" id="promptText"></div>
+                <div class="prompt-sentence" id="promptSentence"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ЕДИНЫЙ СКРИПТ В КОНЦЕ -->
+<script>
+    // ========== TASK 2 ==========
+    function checkTask2() {
+        const blanks = document.querySelectorAll('#task2 select.blank');
+        let correct = 0;
+        blanks.forEach(select => {
+            const answer = select.getAttribute('data-answer');
+            const item = select.closest('.sentence-item');
+            if (select.value === answer) {
+                select.classList.remove('incorrect'); select.classList.add('correct');
+                item.classList.remove('incorrect'); item.classList.add('correct');
+                correct++;
+            } else if (select.value === '') {
+                select.classList.remove('correct', 'incorrect');
+                item.classList.remove('correct', 'incorrect');
+            } else {
+                select.classList.remove('correct'); select.classList.add('incorrect');
+                item.classList.remove('correct'); item.classList.add('incorrect');
+            }
+        });
+        const scoreEl = document.getElementById('task2-score');
+        scoreEl.textContent = `Score: ${correct} / ${blanks.length}`;
+        scoreEl.classList.add('visible');
+        const msgEl = document.getElementById('task2-msg');
+        if (correct === blanks.length) msgEl.classList.add('visible');
+        else msgEl.classList.remove('visible');
+    }
+    function resetTask2() {
+        const blanks = document.querySelectorAll('#task2 select.blank');
+        blanks.forEach(select => {
+            select.value = ''; select.classList.remove('correct', 'incorrect');
+            select.closest('.sentence-item').classList.remove('correct', 'incorrect');
+        });
+        document.getElementById('task2-score').classList.remove('visible');
+        document.getElementById('task2-msg').classList.remove('visible');
+    }
+
+    // ========== TASK 3 - MATCHING ==========
+    let selectedLeftItem = null;
+    let matchedPairs = 0;
+    const totalPairs = 5;
+    const correctPairs = {
+        'picnic': 'grass', 'sleepover': 'friend', 'fancy': 'costume',
+        'concert': 'music', 'danceshow': 'dance'
+    };
+    function selectLeft(element) {
+        if (element.classList.contains('matched')) return;
+        document.querySelectorAll('.match-left').forEach(item => item.classList.remove('selected'));
+        element.classList.add('selected'); selectedLeftItem = element;
+    }
+    function selectRight(element) {
+        if (!selectedLeftItem || element.classList.contains('matched')) return;
+        const leftKey = selectedLeftItem.getAttribute('data-pair');
+        const rightKey = element.getAttribute('data-pair');
+        if (correctPairs[leftKey] === rightKey) {
+            const leftText = selectedLeftItem.getAttribute('data-full');
+            const rightText = element.getAttribute('data-full');
+            selectedLeftItem.classList.remove('selected');
+            selectedLeftItem.classList.add('matched');
+            element.classList.add('matched');
+            addConnectedRow(leftText, rightText);
+            selectedLeftItem = null; matchedPairs++;
+            updateScore();
+            if (matchedPairs === totalPairs) {
+                setTimeout(() => document.getElementById('task3-msg').classList.add('visible'), 300);
+            }
+        } else {
+            element.classList.add('wrong');
+            setTimeout(() => element.classList.remove('wrong'), 500);
+            selectedLeftItem.classList.remove('selected'); selectedLeftItem = null;
+        }
+    }
+    function addConnectedRow(leftText, rightText) {
+        const container = document.getElementById('connectedPairs');
+        const row = document.createElement('div');
+        row.className = 'connected-row';
+        row.innerHTML = `<span class="left-text">${leftText}</span><span class="arrow">➡️</span><span class="right-text">${rightText}</span><span class="check">✓</span>`;
+        container.appendChild(row);
+    }
+    function updateScore() {
+        const scoreEl = document.getElementById('task3-score');
+        scoreEl.textContent = `Matched: ${matchedPairs} / ${totalPairs}`;
+        scoreEl.classList.add('visible');
+    }
+    function resetTask3() {
+        document.querySelectorAll('.match-item').forEach(item => {
+            item.classList.remove('selected', 'matched', 'wrong');
+        });
+        document.getElementById('connectedPairs').innerHTML = '';
+        selectedLeftItem = null; matchedPairs = 0;
+        document.getElementById('task3-score').classList.remove('visible');
+        document.getElementById('task3-msg').classList.remove('visible');
+    }
+
+    // ========== TASK 5 ==========
+    function checkTask5() {
+        const groups = {};
+        const selects = document.querySelectorAll('.need-select');
+        selects.forEach(select => {
+            const group = select.getAttribute('data-group');
+            if (!groups[group]) groups[group] = [];
+            groups[group].push(select);
+        });
+        let correctCards = 0;
+        const totalCards = Object.keys(groups).length;
+        Object.keys(groups).forEach(group => {
+            const groupSelects = groups[group];
+            let groupCorrect = 0;
+            groupSelects.forEach(select => {
+                if (select.value === '') return;
+                if (select.getAttribute('data-answer') === 'true') {
+                    select.classList.remove('incorrect'); select.classList.add('correct');
+                    groupCorrect++;
+                } else {
+                    select.classList.remove('correct'); select.classList.add('incorrect');
+                }
+            });
+            if (groupCorrect === 2) correctCards++;
+        });
+        const scoreEl = document.getElementById('task5-score');
+        scoreEl.textContent = `Correct cards: ${correctCards} / ${totalCards}`;
+        scoreEl.classList.add('visible');
+        const msgEl = document.getElementById('task5-msg');
+        if (correctCards === totalCards) msgEl.classList.add('visible');
+        else msgEl.classList.remove('visible');
+    }
+    function resetTask5() {
+        document.querySelectorAll('.need-select').forEach(select => {
+            select.value = ''; select.classList.remove('correct', 'incorrect');
+        });
+        document.getElementById('task5-score').classList.remove('visible');
+        document.getElementById('task5-msg').classList.remove('visible');
+    }
+
+    // ========== TASK 8 - DICE ==========
+    const prompts = {
+        1: { label: "🎤 Say the word!", text: "Choose one event and say the word out loud.", sentence: 'Example: "Concert!"' },
+        2: { label: "👍 Say if you like it!", text: "Choose one event and say if you like it.", sentence: 'Example: "I like picnics!"' },
+        3: { label: "📅 Say when you last went!", text: "Choose one event and say when you last went.", sentence: 'Example: "I last went to a concert last summer."' },
+        4: { label: "👥 Say who you go with!", text: "Choose one event and say who you go with.", sentence: 'Example: "I go to picnics with my family."' },
+        5: { label: "✏️ Make a sentence!", text: "Choose one event and make a full sentence.", sentence: 'Example: "I want to have a sleepover next weekend."' },
+        6: { label: "❓ Ask your partner!", text: "Choose one event and ask your partner a question.", sentence: 'Example: "Do you like barbecues?"' }
+    };
+    const diceFaces = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+    let isRolling = false;
+    function rollDice() {
+        if (isRolling) return; isRolling = true;
+        const diceEl = document.getElementById('dice');
+        const btn = document.getElementById('rollBtn');
+        const prompt = document.getElementById('dicePrompt');
+        btn.disabled = true; btn.style.opacity = '0.5'; prompt.style.display = 'none';
+        let rollCount = 0; const totalRolls = 12;
+        const rollInterval = setInterval(() => {
+            const randomFace = Math.floor(Math.random() * 6);
+            diceEl.textContent = diceFaces[randomFace];
+            diceEl.classList.remove('rolling'); void diceEl.offsetWidth; diceEl.classList.add('rolling');
+            rollCount++;
+            if (rollCount >= totalRolls) {
+                clearInterval(rollInterval);
+                const finalRoll = Math.floor(Math.random() * 6) + 1;
+                diceEl.textContent = diceFaces[finalRoll - 1];
+                const p = prompts[finalRoll];
+                document.getElementById('promptLabel').textContent = p.label;
+                document.getElementById('promptText').textContent = p.text;
+                document.getElementById('promptSentence').textContent = p.sentence;
+                prompt.style.display = 'block';
+                btn.disabled = false; btn.style.opacity = '1'; isRolling = false;
+            }
+        }, 100);
+    }
+</script>
+
+</body>
+</html>
